@@ -1,4 +1,9 @@
 <?php session_start();
+// Création d'un code token
+// $token = base_convert(hash('sha256', time() . mt_rand()), 16, 36);
+// Stockage du token dans la session
+// $_SESSION['token'] = $token;
+
 // Vérification si POST est rempli
 if (!empty($_POST)) {
     // Vérification si les POST existe et sont remplis
@@ -14,7 +19,7 @@ if (!empty($_POST)) {
                 setcookie('pwd', password_hash($_POST['mdp'], PASSWORD_DEFAULT), ['expires' => time()+365*24*3600]);
             }
             // Redirige vers le formulaire
-            header('location:form.php');
+            header('location:form.php'); // Pour le token : ?token='.urlencode($token).'\'
         } else {
             header('location:login.php?erreurConnexion');
         }

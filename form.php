@@ -11,7 +11,8 @@
     <?php
     // Vérification si une session existe ou si des cookies existent
     if ((isset($_SESSION['isConnected']) && $_SESSION['isConnected'] == TRUE) || (isset($_COOKIE['idt']) && $_COOKIE['idt'] === 'guest' && isset($_COOKIE['pwd']) && password_verify('1234', $_COOKIE['pwd']))) {
-        // Affichage du formulaire
+        // if ($_SESSION['token'] == urldecode($_GET['token'])) {}
+            // Affichage du formulaire
         ?>
         <a href="deconnexion.php"><button>Se déconnecter</button></a>
         <h1>Nous contacter</h1>
